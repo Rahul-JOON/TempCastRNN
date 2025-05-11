@@ -27,11 +27,14 @@ def parse_forecast_csv(csv_path: str):
             # Pivot into 12x12 format
             mat = subset.pivot(index="forecast_made_at", columns="forecast_for_hour", values="temperature")
             mat = mat.sort_index().ffill(axis=1).ffill().iloc[:12, :12]
+            if mat.isnull().values.any():
+                continue  # Skip incomplete matrices
 
             if mat.shape == (12, 12):
                 input_tensor = torch.tensor(mat.values, dtype=torch.float32)
-                target_temp = mat.iloc[-1, -1]  # 12th forecast made at hour 11 for hour 12
+                target_seq = mat.iloc[-1, -1]
+                target_tensor = torch.tensor(target_seq, dtype=torch.float32)
                 input_tensors.append(input_tensor)
-                target_values.append(torch.tensor([target_temp]))
+                target_values.append(target_tensor)
 
     return input_tensors, target_values

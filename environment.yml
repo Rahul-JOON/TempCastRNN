@@ -16,3 +16,6 @@ dependencies:
   - requests
   - ipykernel
   - notebook
+  - pip:
+    - dotenv
+    - scikit-learn

@@ -1,7 +1,6 @@
 import requests
 
-def download_csv(city: str, start: str, end: str, save_path: str = "data/raw/raw_forecast.csv"):
-    url = "http://127.0.0.1:8005/download"
+def download_csv(city: str, start: str, end: str, url, save_path: str = "data/raw/raw_forecast.csv"):
     # url = "https://forecast-dashboard.vercel.app/api/download"
     payload = {
         "city": city,
