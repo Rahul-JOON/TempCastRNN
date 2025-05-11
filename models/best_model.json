@@ -1,0 +1,23 @@
+{
+    "epoch": 132,
+    "val_loss": 0.08883394408775003,
+    "train_loss": 0.20851443032423655,
+    "learning_rate": 2.0610737385375885e-05,
+    "timestamp": "2025-05-11 13:02:19",
+    "model_config": {
+        "d_model": 128,
+        "nhead": 4,
+        "num_layers": 2
+    },
+    "training_config": {
+        "batch_size": 32,
+        "weight_decay": 0.01,
+        "lr": 2.0610737385375885e-05,
+        "scheduler": "CosineAnnealingLR"
+    },
+    "dataset_info": {
+        "city": "City_Name",
+        "train_size": 2384,
+        "val_size": 596
+    }
+}
